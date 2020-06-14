@@ -1,0 +1,1 @@
+https://github.com/geektime-geekbang/geekbang-lessons/blob/master/thinking-in-spring/pom.xml
