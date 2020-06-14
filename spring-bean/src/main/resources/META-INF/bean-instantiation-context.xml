@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+        <!-- 静态工厂方法的实例化方式 -->
+        <bean id="user-by-static-method" class="indi.liangli.springframework.ioc.overview.domain.User"
+        factory-method="createUser"/>
+
+        <!-- 实例（bean） 工厂方法实例化 bean -->
+        <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser"/>
+
+        <!--FactoryBean 实例化bean getObject-->
+        <bean id="user-by-factory-bean" class="indi.liangli.springframework.bean.factory.UserFactoryBean"/>
+
+        <bean id="userFactory" class="indi.liangli.springframework.bean.factory.DefaultUserFactory"/>
+
+</beans>
