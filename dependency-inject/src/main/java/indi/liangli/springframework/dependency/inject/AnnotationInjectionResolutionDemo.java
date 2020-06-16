@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * 注解驱动 依赖注入处理的过程
  * 元数据解析 --》 依赖查找(依赖的来源 容器，本地，外部 都可以 ) --》 依赖注入
  * TODO 单一类型和集合类型的依赖注入处理过程调试
- * 小技巧，调式源码的时候可以看堆栈信息(Frames + alt+ F8)
+ * tips ：小技巧，调式源码的时候可以看堆栈信息(Frames 和 alt+ F8)
  * @author liangli
  * @Date: 2020/6/14 9:29
  */
