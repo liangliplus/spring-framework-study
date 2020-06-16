@@ -28,7 +28,22 @@
     </properties>
 
     <dependencyManagement>
+        <dependencies>
+            <!-- spring IOC 核心依赖 -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
 
+            <!--web mvc 的核心依赖  -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+        </dependencies>
     </dependencyManagement>
 
     <dependencies>
@@ -49,8 +64,14 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
         </dependency>
+
+        <!--web mvc 的核心依赖  -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
         <!-- 单元测试依赖-->
         <dependency>
             <groupId>junit</groupId>
