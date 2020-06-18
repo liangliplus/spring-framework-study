@@ -12,6 +12,7 @@
     <bean id="user" class="indi.liangli.springframework.ioc.overview.domain.User">
         <property name="id" value="1"/>
         <property name="name" value="小毛毛"/>
+
     </bean>
 
     <bean id="superUser" class="indi.liangli.springframework.ioc.overview.domain.SuperUser" parent="user"

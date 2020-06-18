@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @author liangli
  * 2020/6/16 10:07
  */
-public class AnnotationDependencyFeildInjectionDemo {
+public class AnnotationDependencyFieldInjectionDemo {
 
     @Autowired
     private
@@ -34,7 +34,7 @@ public class AnnotationDependencyFeildInjectionDemo {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
 
         //注册 Configuration Class
-        applicationContext.register(AnnotationDependencyFeildInjectionDemo.class);
+        applicationContext.register(AnnotationDependencyFieldInjectionDemo.class);
 
         //混用
         String location = "classpath:/META-INF/dependency-lookup-context.xml";
@@ -44,7 +44,7 @@ public class AnnotationDependencyFeildInjectionDemo {
         //启动 spring 上下文
         applicationContext.refresh();
 
-        AnnotationDependencyFeildInjectionDemo bean = applicationContext.getBean(AnnotationDependencyFeildInjectionDemo.class);
+        AnnotationDependencyFieldInjectionDemo bean = applicationContext.getBean(AnnotationDependencyFieldInjectionDemo.class);
         System.out.println("userHolder1 :"+bean.userHolder1);
         System.out.println("userHolder2 :"+bean.userHolder2);
 

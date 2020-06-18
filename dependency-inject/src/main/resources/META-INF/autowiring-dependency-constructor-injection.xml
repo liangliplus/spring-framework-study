@@ -8,16 +8,9 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <import resource="classpath:/META-INF/dependency-lookup-context.xml"/>
 
-    <bean id="user" class="indi.liangli.springframework.ioc.overview.domain.User">
-        <property name="id" value="1"/>
-        <property name="name" value="小毛毛"/>
-
-    </bean>
-
-    <bean id="superUser" class="indi.liangli.springframework.ioc.overview.domain.SuperUser" parent="user"
-            primary="true">
-        <property name="address" value="shanghai"/>
-    </bean>
+    <!-- 基于xml 资源的构造函数注入 -->
+    <bean class="indi.liangli.springframework.dependency.inject.UserHolder" autowire="constructor"/>
 
 </beans>
