@@ -14,6 +14,9 @@ import javax.annotation.PostConstruct;
 
 /**
  * 依赖来源demo
+ * 依赖查找 和依赖注入来源都可以 是XML 配置文件，注解，BeanDefinitionBuilder  ，单例对象通过Api实现
+ * 依赖注入的来源还有非 spring 容器管理对象，比如BeanFactory，可以@Autowired 但是getBean(BeanFactory.class) 报错
+ *
  * spring beanDefinition， 单例对象通过 SingletonRegistry 注册，
  * Spring 的内建对象，如ConfigurationClassPostProcessor，AutowiredAnnotationBeanPostProcessor等
  * Spring 内部的单例对象 Environment， systemProperties ， systemEnvironment， MessageSource， lifecycleProcessor, applicationEventMulticaster
@@ -27,7 +30,7 @@ import javax.annotation.PostConstruct;
  */
 public class DependencySourceDemo {
 
-    @Autowired
+    @Autowired   //注入在 postProcessProperties  方法执行，早于setter 注入，也早于@PostConstruct
     private BeanFactory beanFactory;
 
     @Autowired
@@ -51,6 +54,7 @@ public class DependencySourceDemo {
     }
     @PostConstruct
     public void initByLookup(){
+        //内建的类在容器中没有
         getBean(BeanFactory.class);
         getBean(ResourceLoader.class);
         getBean(ApplicationContext.class);
