@@ -1,6 +1,90 @@
-### idea  ####
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+.vertx
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+### vscode ###
+.vscode/
+
+# Compiled class file
 *.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# ignore folder #
+target/
+output/
+logs/
+data/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/project
+/project/target
+/target
+/data
+
+### Java template
+.class
+.exe
+.log
+.classpath
+.settings
+.metadata
+Thumb.db
+.project
+*.iml
+.idea
+target
+*.classpath
+*.project
+.externalToolBuilders/
+logs/
+*.log
+.DS_Store
+
+#idea
+*.idea
+*.iml
+/lib/
