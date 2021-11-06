@@ -15,6 +15,7 @@
         <!-- 实例（bean） 工厂方法实例化 bean -->
         <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser"/>
 
+        <!--这个就更加通用一点 -->
         <!--FactoryBean 实例化bean getObject-->
         <bean id="user-by-factory-bean" class="indi.liangli.springframework.bean.factory.UserFactoryBean"/>
 

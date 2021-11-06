@@ -1,12 +1,10 @@
 package indi.liangli.springframework.dependency.inject;
 
 import indi.liangli.springframework.ioc.overview.domain.User;
-import org.springframework.beans.factory.config.SingletonBeanRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
-import sun.plugin.com.BeanDispatchImpl;
 
 /**
  * 基于注解的 构建器注入Demo
