@@ -1,2 +1,11 @@
+indi\liangli\springframework\bean\definition\BeanInstantiationDemo.class
+indi\liangli\springframework\bean\definition\SingletonBeanRegistryDemo.class
+indi\liangli\springframework\bean\definition\SpecialBeanInstantiationDemo.class
+indi\liangli\springframework\bean\factory\UserFactory.class
+indi\liangli\springframework\bean\factory\DefaultUserFactory.class
 indi\liangli\springframework\bean\definition\BeanDefinitionCreationDemo.class
-indi\liangli\springframework\App.class
+indi\liangli\springframework\bean\definition\BeanDefinitionRegistryDemo$Config.class
+indi\liangli\springframework\bean\definition\BeanInitializationDemo.class
+indi\liangli\springframework\bean\definition\BeanDefinitionRegistryDemo.class
+indi\liangli\springframework\bean\definition\BeanAliasDemo.class
+indi\liangli\springframework\bean\factory\UserFactoryBean.class

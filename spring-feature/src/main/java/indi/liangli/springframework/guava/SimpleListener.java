@@ -1,7 +1,6 @@
 package indi.liangli.springframework.guava;
 
 import com.google.common.eventbus.Subscribe;
-import indi.liangli.springframework.event.StudentEvent;
 
 /**
  *

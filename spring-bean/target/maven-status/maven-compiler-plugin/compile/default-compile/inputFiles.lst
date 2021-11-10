@@ -1,2 +1,10 @@
-D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\App.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\definition\BeanInstantiationDemo.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\factory\UserFactoryBean.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\definition\SingletonBeanRegistryDemo.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\definition\SpecialBeanInstantiationDemo.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\factory\DefaultUserFactory.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\definition\BeanInitializationDemo.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\factory\UserFactory.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\definition\BeanAliasDemo.java
+D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\definition\BeanDefinitionRegistryDemo.java
 D:\workspace2019\spring-framework-study\spring-bean\src\main\java\indi\liangli\springframework\bean\definition\BeanDefinitionCreationDemo.java
