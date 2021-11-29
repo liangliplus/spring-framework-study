@@ -17,6 +17,7 @@
         <module>bean-lifecycle</module>
         <!-- 目前包含task， spring cache 的简单实现 -->
 		<module>spring-feature</module>
+        <module>web-flux</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -45,11 +46,20 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webflux</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.retry</groupId>
                 <artifactId>spring-retry</artifactId>
                 <version>1.2.4.RELEASE</version>
             </dependency>
+            
+
 
         </dependencies>
     </dependencyManagement>
