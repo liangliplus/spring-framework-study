@@ -8,3 +8,7 @@ TODO
 indi.liangli.springframework.dependency.inject.AnnotationDependencyInjectionResolutionDemo
 
 
+
+
+-- 删除target 文件追踪
+git rm -rf --cached ioc-container-overview/target
