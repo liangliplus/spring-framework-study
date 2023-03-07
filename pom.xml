@@ -18,6 +18,7 @@
         <!-- 目前包含task， spring cache 的简单实现 -->
 		<module>spring-feature</module>
         <module>web-flux</module>
+        <module>spring-ext</module>
     </modules>
     <packaging>pom</packaging>
 
