@@ -19,6 +19,7 @@
 		<module>spring-feature</module>
         <module>web-flux</module>
         <module>web-mvc</module>
+        <module>spring-ext</module>
     </modules>
     <packaging>pom</packaging>
 
