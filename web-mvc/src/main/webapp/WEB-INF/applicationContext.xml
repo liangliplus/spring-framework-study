@@ -5,12 +5,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<context:component-scan base-package="indi.kenneth.mvc.controller"/>-->
+    <context:component-scan base-package="indi.kenneth.mvc"/>
     <mvc:annotation-driven/>
 
-    <bean class="indi.kenneth.mvc.controller.HelloController"/>
-    <!-- 1、配置映射处理器 ：name来映射寻找controller (默认存在，可以省略不配置，如果用到另外两种需要配置) -->
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
 
     <!-- 3、配置映射处理器:控制类的类名控制器，访问时类名首字母需要小写 -->
     <!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean> -->
