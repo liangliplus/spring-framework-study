@@ -16,7 +16,7 @@
     <!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean> -->
     <!-- 配置视图解析器 如何把handler 方法返回值解析为实际的物理视图  根据控制器返回的字符串拼接成jsp路径：/WEB-INF/page/xx.jsp -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/page/"/><!-- 前缀 -->
+        <property name="prefix" value="/WEB-INF/views/"/><!-- 前缀 -->
         <property name="suffix" value=".jsp"/><!-- 后缀 -->
     </bean>
 </beans>
