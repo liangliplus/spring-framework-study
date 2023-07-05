@@ -12,6 +12,10 @@
     <artifactId>web-mvc</artifactId>
     <packaging>war</packaging>
 
+
+    <properties>
+        <jackson.version>2.13.4</jackson.version>
+    </properties>
     <name>web-mvc Maven Webapp</name>
 
 
@@ -31,6 +35,7 @@
 
 
 
+
         <!-- SLF4J/Logback -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -41,8 +46,23 @@
 
 
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+
+
+
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>indi.liangli.springframework</groupId>
+            <artifactId>ioc-container-overview</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -63,7 +83,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.5.v20170502</version>
+                <version>9.4.8.v20171121</version>
                 <configuration>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
                     <httpConnector>
