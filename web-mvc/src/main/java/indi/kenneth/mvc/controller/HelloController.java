@@ -6,12 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
- * ModelAttribute çš„ä½œç”¨æœ¬è´¨å°±æ˜¯ç®€åŒ–Model æ·»åŠ attributeå±æ€§
- * ä¾‹å¦‚æ ‡è®°å†æ–¹æ³•å‚æ•°ä¸Šï¼Œå°±ç±»ä¼¼äºè°ƒç”¨model.addAttribute
- * å¦‚æœç»™ä¸€ä¸ªæ–¹æ³•æ ‡è®°ModelAttributeï¼Œ æ‰€æœ‰çš„è¯·æ±‚æ–¹æ³•å°±ä¼šè®¾ç½®è¯¥
+ * ModelAttribute µÄ×÷ÓÃ±¾ÖÊ¾ÍÊÇ¼ò»¯Model Ìí¼ÓattributeÊôĞÔ
+ * ÀıÈç±ê¼ÇÔÙ·½·¨²ÎÊıÉÏ£¬¾ÍÀàËÆÓÚµ÷ÓÃmodel.addAttribute
+ * Èç¹û¸øÒ»¸ö·½·¨±ê¼ÇModelAttribute£¬ ËùÓĞµÄÇëÇó·½·¨¾Í»áÉèÖÃ¸Ã
  *
  * @author kenneth
  * @Date: 2023/3/5
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
 
     @GetMapping("/hello")
+    @ResponseBody
     public String hello() {
         return "hello";
     }
@@ -36,10 +38,10 @@ public class HelloController {
 
 
     /**
-     * ModelAttribute("user") æ ‡è®°åœ¨æ–¹æ³•ä¸Šã€‚
-     * ç±»ä¼¼ model.addAttribute("user",new User(1,zhangsan));
-     * è¿™æ ·å…¶ä»–æ ‡è®°@RequestMapping çš„æ–¹æ³•éƒ½æœ‰è¯¥ä½œç”¨åŸŸ
-     * è¿™æ ·åšå¾—å¥½å¤„å¯ä»¥å­˜æ”¾ä¸€äº›é…ç½®å±æ€§ã€‚
+     * ModelAttribute("user") ±ê¼ÇÔÚ·½·¨ÉÏ¡£
+     * ÀàËÆ model.addAttribute("user",new User(1,zhangsan));
+     * ÕâÑùÆäËû±ê¼Ç@RequestMapping µÄ·½·¨¶¼ÓĞ¸Ã×÷ÓÃÓò
+     * ÕâÑù×öµÃºÃ´¦¿ÉÒÔ´æ·ÅÒ»Ğ©ÅäÖÃÊôĞÔ¡£
      * @return
      */
     @ModelAttribute("user")
