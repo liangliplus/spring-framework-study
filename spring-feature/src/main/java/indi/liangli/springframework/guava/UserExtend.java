@@ -1,5 +1,7 @@
 package indi.liangli.springframework.guava;
 
+import indi.liangli.springframework.entity.User;
+
 /**
  *
  * @author liangli

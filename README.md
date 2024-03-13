@@ -10,5 +10,5 @@ indi.liangli.springframework.dependency.inject.AnnotationDependencyInjectionReso
 
 
 
--- 删除target 文件追踪
+-- 删除git文件追踪 target 
 git rm -rf --cached ioc-container-overview/target

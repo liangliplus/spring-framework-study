@@ -20,6 +20,7 @@
         <module>web-flux</module>
         <module>web-mvc</module>
         <module>spring-ext</module>
+        <module>common-entity</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -68,6 +69,11 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>indi.liangli.springframework</groupId>
+                <artifactId>common-entity</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

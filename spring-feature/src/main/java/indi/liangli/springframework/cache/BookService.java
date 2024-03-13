@@ -54,6 +54,9 @@ public class BookService {
          db.put(book.getId(),book);
          return book;
     }
+
+
+
     @CacheEvict(value = "books",key = "#id")
     public int deleteBook(Integer id) {
         db.remove(id);

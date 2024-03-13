@@ -17,7 +17,10 @@ import java.util.concurrent.ThreadLocalRandom;
 public class AsyncService {
 
 
-
+    /**
+     * 标记Async 注解， 返回实现Future 对象的 AsyncResult
+     * @return
+     */
     @Async(value = "asyncPool")
     public Future<List<Integer>> asyncRequest() {
         try {
