@@ -6,8 +6,22 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="indi.kenneth.mvc"/>
-    <mvc:annotation-driven/>
-
+    <!-- 支持mvc注解驱动，并且配置解决json乱码问题 -->
+    <mvc:annotation-driven>
+        <!-- 为什么添加下面两个转换器就可以 转换消息 -->
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8"/>
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+                        <property name="failOnEmptyBeans" value="false"/>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!-- 3、配置映射处理器:控制类的类名控制器，访问时类名首字母需要小写 -->
     <!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean> -->

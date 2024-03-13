@@ -25,6 +25,7 @@
             <groupId>indi.liangli.springframework</groupId>
             <artifactId>common-entity</artifactId>
         </dependency>
+		
 
     </dependencies>
 </project>

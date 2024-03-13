@@ -21,6 +21,7 @@
         <module>web-mvc</module>
         <module>spring-ext</module>
         <module>common-entity</module>
+	    <module>spring-refresh-notify-import</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -92,6 +93,12 @@
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+
         <!-- spring IOC 核心依赖 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -111,6 +118,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
 
     </dependencies>
 
