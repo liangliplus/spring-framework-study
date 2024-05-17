@@ -1,5 +1,8 @@
 https://github.com/geektime-geekbang/geekbang-lessons/blob/master/thinking-in-spring/pom.xml
 
+@Import 使用见 
+indi.liangli.springframework.selector.ImportTest
+
 TODO 
 复习的点 ： 
 15. 依赖处理过程

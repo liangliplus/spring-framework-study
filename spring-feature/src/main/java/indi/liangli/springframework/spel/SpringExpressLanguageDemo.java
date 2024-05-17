@@ -24,7 +24,7 @@ public class SpringExpressLanguageDemo {
         user.setName("zhangsan");
         //注意是放user 对象。
         context.setVariable("user",user);
-        Object value1 = parser.parseExpression("#user.name").getValue(context, user);
+        Object value1 = parser.parseExpression("#user.name").getValue(context);
         System.out.println(value1);
 
 

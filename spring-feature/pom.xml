@@ -15,6 +15,12 @@
 
     <dependencies>
 
+        <!-- 项目默认依赖spring-context ， 已经有spring-aop 依赖，只需要添加aspectj 依赖-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
