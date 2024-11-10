@@ -1,5 +1,6 @@
 package indi.liangli.spring.webflux;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -22,10 +23,14 @@ public class PersonHandler {
     //正常格式是 PersonService 或者 PersonRepository， 这里的handler 类似controller
 
     private  final Map<Integer,Person> DB = new HashMap<>();
+    {
+        DB.put(1,new Person(1,"张三"));
+    }
 
     public Mono<ServerResponse> getPerson(ServerRequest request) {
         String id = request.pathVariable("id");
-        return null;
+        Person person = DB.get(id);
+        return Mono.justOrEmpty(person).flatMap(r -> ServerResponse.ok().bodyValue(r));
     }
 
     public Mono<ServerResponse> listPerson(ServerRequest request) {
@@ -35,11 +40,15 @@ public class PersonHandler {
 
 
     public Mono<ServerResponse> createPerson(ServerRequest request) {
+        //例如
+        // bodyToMono 把请求体中转为单个对象
+        // bodyToFlux 把请求中数据转为数组
         Mono<Person> personMono = request.bodyToMono(Person.class);
         return personMono.flatMap(person -> {
-            DB.put(person.getId(),person);
-            return Mono.empty();
-        }).flatMap(r -> ServerResponse.ok().bodyValue("success"));
+            DB.put(person.getId(), person);
+            return Mono.just("success");
+        }).flatMap(r -> ServerResponse.ok().bodyValue(r));
+
 
     }
 

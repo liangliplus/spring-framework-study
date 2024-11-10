@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
+ * 1.mono 和 flux 中对象转换为另外一个对象写法
+ * 2.流处理的其他方法
+ * 3.需要知道如何把我们对象转换为mono， 例如返回Mono<Boolean> 有哪些方法
+ *  3.1 Mono.just(false)
  * @Author liangll
  * @Date 2023/6/5
  */

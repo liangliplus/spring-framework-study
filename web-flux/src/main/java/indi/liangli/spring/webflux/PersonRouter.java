@@ -26,7 +26,8 @@ public class PersonRouter {
     public RouterFunction<ServerResponse> personRouter() {
         RouterFunction<ServerResponse> build = RouterFunctions.route()
                 .GET("/person/{id}", handler::getPerson)
-                .GET("/person", handler::listPerson)
+                .GET("/person/list", handler::listPerson)
+                //通过predicate 匹配这个pattern ， 匹配上了就交给这个handlerFunction进行处理
                 .POST("/person", accept(MediaType.APPLICATION_JSON),handler::createPerson).build();
         return build;
     }
