@@ -1,6 +1,6 @@
 package indi.liangli.springframework.selector;
 
-import indi.liangli.springframework.ioc.overview.domain.User;
+import indi.liangli.springframework.entity.User;
 import org.springframework.context.annotation.Bean;
 
 public class ExternalBean  {

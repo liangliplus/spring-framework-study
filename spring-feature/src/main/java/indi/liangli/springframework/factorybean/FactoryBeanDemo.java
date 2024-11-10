@@ -1,6 +1,6 @@
 package indi.liangli.springframework.factorybean;
 
-import indi.liangli.springframework.guava.User;
+import indi.liangli.springframework.entity.User;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

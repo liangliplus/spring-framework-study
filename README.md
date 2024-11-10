@@ -1,5 +1,8 @@
 https://github.com/geektime-geekbang/geekbang-lessons/blob/master/thinking-in-spring/pom.xml
 
+@Import 使用见 
+indi.liangli.springframework.selector.ImportTest
+
 TODO 
 复习的点 ： 
 15. 依赖处理过程
@@ -10,5 +13,5 @@ indi.liangli.springframework.dependency.inject.AnnotationDependencyInjectionReso
 
 
 
--- 删除target 文件追踪
+-- 删除git文件追踪 target 
 git rm -rf --cached ioc-container-overview/target

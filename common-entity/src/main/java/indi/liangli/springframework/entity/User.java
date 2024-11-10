@@ -1,13 +1,14 @@
-package indi.liangli.springframework.ioc.overview.domain;
+package indi.liangli.springframework.entity;
 
-/**
- * @author liangli
- * @Date: 2020/6/12 7:55
- */
-public class User {
+public  class User {
     private Long id;
     private String name;
 
+    public User() {}
+    public User(String name) {
+        this.id = System.currentTimeMillis();
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

@@ -1,6 +1,7 @@
 package indi.liangli.springframework.guava;
 
 import com.google.common.eventbus.Subscribe;
+import indi.liangli.springframework.entity.User;
 
 /**
  *

@@ -1,4 +1,4 @@
-package indi.liangli.springframework.ioc.overview.domain;
+package indi.kenneth.mvc.common;
 
 /**
  * @author liangli

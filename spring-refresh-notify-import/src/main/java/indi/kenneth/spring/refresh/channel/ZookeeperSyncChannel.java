@@ -26,10 +26,15 @@ import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 这里需要标记@Configuration
- * 标记之后方法就会被代理
+ * 标记之后方法就会被代理（@Configuration 的类默认为为其生成代理类）
  */
 public class ZookeeperSyncChannel implements SyncDataChannel,ApplicationContextAware {
     private static final Logger LOGGER = LoggerFactory.getLogger(ZookeeperSyncChannel.class);
@@ -43,6 +48,18 @@ public class ZookeeperSyncChannel implements SyncDataChannel,ApplicationContextA
 
     private ApplicationContext applicationContext;
 
+    private ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(3, new ThreadFactory() {
+        private String prefix = "zookeeper-refresh-thread-";
+        private final AtomicInteger nextId = new AtomicInteger();
+
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread t = new Thread(r, prefix + nextId.incrementAndGet());
+            //设置为守护进程
+            t.setDaemon(true);
+            return t;
+        }
+    });
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -71,7 +88,7 @@ public class ZookeeperSyncChannel implements SyncDataChannel,ApplicationContextA
             return;
         }
         String key = parseKey(refreshCache);
-        //这里可以优化为线程池。
+        //线程池清理过期key
         this.autoClean(key, refreshCache);
 
         // 创建节点监听
@@ -80,8 +97,15 @@ public class ZookeeperSyncChannel implements SyncDataChannel,ApplicationContextA
             @Override
             public void childEvent(CuratorFramework client, PathChildrenCacheEvent event) throws Exception {
                 if (event.getType().equals(Type.CHILD_ADDED)) {
-                    refreshCacheService.refresh(new String(event.getData().getData()));
+                    String data = null;
+                    try {
+                        data = new String(event.getData().getData());
+                        refreshCacheService.refresh(data);
+                    } catch (Exception e) {
+                        LOGGER.error("refreshCache sync data error, key={} ,data:{}",key,data,e);
+                    }
                 }
+
             }
         });
 
@@ -97,23 +121,25 @@ public class ZookeeperSyncChannel implements SyncDataChannel,ApplicationContextA
         return resolveKey;
     }
 
+    /**
+     * 调整为线程池清理zk上key
+     * @param key
+     * @param refreshCache
+     */
     private void autoClean(String key, RefreshCache refreshCache) {
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(refreshCache.refreshTime());
-                    List<String> nodeList = this.curatorFramework.getChildren().forPath(key);
-                    Collections.sort(nodeList);
-                    //仅最后10个节点，防止节点无限增多
-                    for (int i = 0; i < nodeList.size() - RETAIN_NODES; i++) {
-                        this.curatorFramework.delete().forPath(key + "/" + nodeList.get(i));
-                    }
-                } catch (Exception e) {
-                    this.LOGGER.error("zk autoClean node error: key:{}", key, e);
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            try {
+                List<String> nodeList = this.curatorFramework.getChildren().forPath(key);
+                Collections.sort(nodeList);
+                //仅保留最后10个节点，防止节点无限增多
+                for (int i = 0; i < nodeList.size() - RETAIN_NODES; i++) {
+                    this.curatorFramework.delete().forPath(key + "/" + nodeList.get(i));
                 }
-
+            } catch (Exception e) {
+                this.LOGGER.error("zk autoClean node error: key:{}", key, e);
             }
-        }).start();
+        }, refreshCache.refreshTime(), refreshCache.refreshTime(), TimeUnit.MILLISECONDS);
+
     }
 
 
